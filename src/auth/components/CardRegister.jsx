@@ -21,7 +21,7 @@ export const CardRegister = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://tu-backend-api.com/api/register", formData)
+      .post("http://localhost:8000/api/register", formData)
       .then((response) => {
         console.log(response.data);
       })
@@ -39,26 +39,20 @@ export const CardRegister = () => {
           deserunt cupiditate a earum laborum, amet voluptatibus sed sunt, nihil
         </p>
         <form className="form-register" onSubmit={handleSubmit}>
-          <div className="name">
             <label>Primer Nombre:</label>
-            <input type="text" onChange={handleChange} />
+            <input type="text" onChange={handleChange} name="nombre1" required/>
             <label>Segundo Nombre:</label>
-            <input type="text" onChange={handleChange} />
+            <input type="text" onChange={handleChange} name="nombre2" required/>
             <label>Primer Apellido:</label>
-            <input type="text" onChange={handleChange} />
+            <input type="text" onChange={handleChange} name="apellido1" required/>
             <label>Segundo Apellido:</label>
-            <input type="text" onChange={handleChange} />
-          </div>
-          <div className="account">
+            <input type="text" onChange={handleChange} name="apellido2"required/>
             <label>Correo:</label>
-            <input type="text" onChange={handleChange} />
+            <input type="email" onChange={handleChange} required/>
             <label>Contraseña:</label>
-            <input type="text" onChange={handleChange} />
-            <label>Confirmar contraseña:</label>
-            <input type="text" onChange={handleChange} />
-          </div>
+            <input type="text" onChange={handleChange} required/>
           <a href=""></a>
-          <button action="">Registrarse</button>
+          <button type="submit">Registrarse</button>
         </form>
       </div>
     </>
