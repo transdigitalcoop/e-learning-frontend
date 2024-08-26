@@ -21,7 +21,7 @@ export const CardRegister = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:8000/api/register", formData)
+      .post("http://127.0.0.1:8000/api/register", formData)
       .then((response) => {
         console.log(response.data);
       })
