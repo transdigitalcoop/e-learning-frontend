@@ -1,4 +1,4 @@
-import "../styles/Cards.css";
+import "../styles/CardRegister.css";
 import axios from "axios";
 import { useState } from "react";
 export const CardRegister = () => {
@@ -21,7 +21,7 @@ export const CardRegister = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://tu-backend-api.com/api/register", formData)
+      .post("", formData)
       .then((response) => {
         console.log(response.data);
       })
@@ -40,25 +40,33 @@ export const CardRegister = () => {
         </p>
         <form className="form-register" onSubmit={handleSubmit}>
           <div className="name">
-            <label>Primer Nombre:</label>
-            <input type="text" onChange={handleChange} />
-            <label>Segundo Nombre:</label>
-            <input type="text" onChange={handleChange} />
-            <label>Primer Apellido:</label>
-            <input type="text" onChange={handleChange} />
-            <label>Segundo Apellido:</label>
-            <input type="text" onChange={handleChange} />
+            <div className="inputs">
+              <label>Primer Nombre:</label>
+              <input type="text" onChange={handleChange} required />
+            </div>
+            <div className="inputs">
+              <label>Segundo Nombre:</label>
+              <input type="text" onChange={handleChange} required />
+            </div>
+            <div className="inputs">
+              <label>Primer Apellido:</label>
+              <input type="text" onChange={handleChange} required />
+            </div>
+            <div className="inputs">
+              <label>Segundo Apellido:</label>
+              <input type="text" onChange={handleChange} required />
+            </div>
           </div>
           <div className="account">
             <label>Correo:</label>
-            <input type="text" onChange={handleChange} />
+            <input type="email" onChange={handleChange} required />
             <label>Contraseña:</label>
-            <input type="text" onChange={handleChange} />
+            <input type="password" onChange={handleChange} required />
             <label>Confirmar contraseña:</label>
-            <input type="text" onChange={handleChange} />
+            <input type="text" onChange={handleChange} required />
           </div>
           <a href=""></a>
-          <button action="">Registrarse</button>
+          <button type="submit">Registrarse</button>
         </form>
       </div>
     </>
