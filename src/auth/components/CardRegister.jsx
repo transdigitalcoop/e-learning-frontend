@@ -3,10 +3,10 @@ import axios from "axios";
 import { useState } from "react";
 export const CardRegister = () => {
   const [formData, setFormData] = useState({
-    nombre1: "",
-    nombre2: "",
-    apellido1: "",
-    apellido2: "",
+    name: "",
+    segundo_nombre: "",
+    primer_apellido: "",
+    segundo_apellido: "",
     email: "",
     contraseña: "",
   });
@@ -21,7 +21,7 @@ export const CardRegister = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://127.0.0.1:8000/api/register", formData)
+      .post("http://127.0.0.1:8000/api/usuarios", formData)
       .then((response) => {
         console.log(response.data);
       })
@@ -40,17 +40,17 @@ export const CardRegister = () => {
         </p>
         <form className="form-register" onSubmit={handleSubmit}>
             <label>Primer Nombre:</label>
-            <input type="text" onChange={handleChange} name="nombre1" required/>
+            <input type="text" onChange={handleChange} name="name" required/>
             <label>Segundo Nombre:</label>
-            <input type="text" onChange={handleChange} name="nombre2" required/>
+            <input type="text" onChange={handleChange} name="segundo_nombre" required/>
             <label>Primer Apellido:</label>
-            <input type="text" onChange={handleChange} name="apellido1" required/>
+            <input type="text" onChange={handleChange} name="primer_apellido" required/>
             <label>Segundo Apellido:</label>
-            <input type="text" onChange={handleChange} name="apellido2"required/>
+            <input type="text" onChange={handleChange} name="segundo_apellido"required/>
             <label>Correo:</label>
-            <input type="email" onChange={handleChange} required/>
+            <input type="email" onChange={handleChange} name="email" required/>
             <label>Contraseña:</label>
-            <input type="text" onChange={handleChange} required/>
+            <input type="password" onChange={handleChange} name="password" required/>
           <a href=""></a>
           <button type="submit">Registrarse</button>
         </form>
