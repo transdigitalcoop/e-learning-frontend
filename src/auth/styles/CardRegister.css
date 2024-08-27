@@ -1,8 +1,7 @@
 .Main-card{
-    border: 2px solid;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 50px;
     padding: 20px;
 }
 .Main-card h1{
@@ -40,12 +39,18 @@
     margin: 0px auto;
 }
 .Main-card .name{
+    margin-top: 20px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
 }
 .Main-card .account{
-    border: 2px solid;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.Main-card .account input{
+    width: 97.5%;
 }
 .Main-card .inputs{
     display: flex;
@@ -62,4 +67,23 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+}
+.Main-card .redirect{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.Main-card .redirect a{
+    color:#00AFC4 ;
+}
+.Main-card button{
+    width: 520px;
+    height: 50px;
+    font-size: 20px;
+    color: white;
+    border-radius: 4.097px;
+    background: #00AFC4;
 }

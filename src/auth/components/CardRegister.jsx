@@ -85,8 +85,11 @@ export const CardRegister = () => {
             <label>Confirmar contraseña:</label>
             <input type="text" onChange={handleChange} required />
           </div>
-          <a href=""></a>
-          <button type="submit">Registrarse</button>
+          <div className="redirect">
+            <a href="">¿Ya tienes cuenta? Inicia sesion aquí</a>
+
+            <button type="submit">Registrarse</button>
+          </div>
         </form>
       </div>
     </>
