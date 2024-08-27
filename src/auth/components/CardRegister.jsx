@@ -79,7 +79,7 @@ export const CardRegister = () => {
             <input
               type="password"
               onChange={handleChange}
-              name="contraseña"
+              name="password"
               required
             />
             <label>Confirmar contraseña:</label>
