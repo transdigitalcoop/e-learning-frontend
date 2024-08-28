@@ -4,3 +4,11 @@
     display: flex;
     padding: 10px;
 }
+
+
+@media (max-width:480px) {
+    .Nav-maincontainer img{
+        height: 80px;
+        width: 300px;
+    }
+}
