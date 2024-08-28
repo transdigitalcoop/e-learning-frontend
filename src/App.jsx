@@ -1,12 +1,14 @@
-import { Register } from "./auth/pages/Register";
+import { Rutasauth } from "./auth/routes/Rutasauth";
 import Mainlayout from "./layout/Mainlayout";
+// import { Rutas } from "./routes/Rutas";
 import "./styles/App.css";
 
 function App() {
   return (
     <>
-      <Mainlayout />
-      <Register />
+      <Mainlayout>
+        <Rutasauth />
+      </Mainlayout>
     </>
   );
 }
