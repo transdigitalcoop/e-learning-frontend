@@ -19,7 +19,9 @@ export const CardLogin = () => {
             <a href="auth/register" className="Myriad">
               Olvide mi contraseña
             </a>
-            <button type="submit">Entrar</button>
+            <button type="submit" className="Cascadia">
+              Entrar
+            </button>
           </div>
         </form>
       </div>

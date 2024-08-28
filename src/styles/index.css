@@ -10,6 +10,12 @@
 button{
 	cursor: pointer;
 }
+.Myriad{
+    font-family: "Myriad Variable Concept";
+}
+.Cascadia{
+	font-family: "Cascadia Code";
+}
 body{
    background-color: white;
 }
