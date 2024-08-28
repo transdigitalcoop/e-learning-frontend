@@ -17,3 +17,10 @@
     width: 90%;
     height: 800px;
 }
+
+@media (max-width:480px) {
+    .Register-container .dibujo img{
+      display: none;
+        height: 800px;
+    }
+}
