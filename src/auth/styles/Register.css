@@ -5,8 +5,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
-    height: 100vh;
-
+    height: 100%;
 }
 .Register-container .dibujo{
     display: flex;
@@ -14,6 +13,6 @@
     justify-content: center;
 }
 .Register-container .dibujo img{
-    width: 90%;
-    height: 800px;
+    width: 100%;
+    height: 90%;
 }

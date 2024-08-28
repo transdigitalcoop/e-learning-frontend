@@ -5,7 +5,7 @@ export const Rutasauth = () => {
   return (
     <Routes>
       <Route path="auth/*" element={<Login />} />
-      <Route path="auth/Login" element={<Register />} />
+      <Route path="auth/register" element={<Register />} />
     </Routes>
   );
 };

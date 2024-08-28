@@ -1,8 +1,10 @@
 .Main-card{
     display: flex;
     flex-direction: column;
-    gap: 50px;
     padding: 20px;
+    gap: 20px;
+    width: 100%;
+    height: 95%;
 }
 .Main-card h1{
     color: #00AFC4;
@@ -15,11 +17,12 @@
 }
 .Main-card input{
     width: 95%;
-    height: 50px;
+    height: 25px;
     font-size: 18px;
     border-radius: 4.388px;
     border: 1.755px solid #00AFC4;
     background: #FFF;
+    padding: 4px;
 }
 .Main-card p{
     color: #00AFC4;
@@ -34,19 +37,18 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(2, 1fr);
-    height: 500px;
+    gap: 10px;
     width: 90%;
-    margin: 0px auto;
+    margin: auto auto;
 }
 .Main-card .name{
-    margin-top: 20px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
 }
 .Main-card .account{
-    margin-top: 20px;
     display: flex;
+    gap: 5px;
     flex-direction: column;
 }
 .Main-card .account input{
@@ -54,7 +56,6 @@
 }
 .Main-card .inputs{
     display: flex;
-    gap: 5px;
     flex-direction: column;
     justify-content: center;
     margin: 0px auto;
@@ -63,27 +64,36 @@
 .Main-card label{
     color: rgba(88, 171, 199, 0.89);
     font-family: "Cascadia Code";
-    font-size: 21.42px;
+    font-size: 22px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
 }
 .Main-card .redirect{
-    margin-top: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    margin-top: 30px;
+    gap: 8px;
 }
 .Main-card .redirect a{
     color:#00AFC4 ;
 }
 .Main-card button{
-    width: 520px;
+    width: 300px;
     height: 50px;
     font-size: 20px;
     color: white;
     border-radius: 4.097px;
+   
     background: #00AFC4;
+}
+.titulo-desc{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 20px;
+    gap: 5px;
 }

@@ -1,5 +1,6 @@
 .Nav-maincontainer{
-    height: 100px;
+    background-color: white;
+    height: 90px;
     display: flex;
     padding: 10px;
 }

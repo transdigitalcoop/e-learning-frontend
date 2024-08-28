@@ -33,11 +33,14 @@ export const CardRegister = () => {
   return (
     <>
       <div className="Main-card">
-        <h1>Crea tu cuenta</h1>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id in quas
-          deserunt cupiditate a earum laborum, amet voluptatibus sed sunt, nihil
-        </p>
+        <div className="titulo-desc">
+          <h1>Crea tu cuenta</h1>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id in quas
+            deserunt cupiditate a earum laborum, amet voluptatibus sed sunt,
+            nihil
+          </p>
+        </div>
         <form className="form-register" onSubmit={handleSubmit}>
           <div className="name">
             <div className="inputs">
@@ -83,11 +86,10 @@ export const CardRegister = () => {
               required
             />
             <label>Confirmar contraseña:</label>
-            <input type="text" onChange={handleChange} required />
+            <input type="password" onChange={handleChange} required />
           </div>
           <div className="redirect">
             <a href="">¿Ya tienes cuenta? Inicia sesion aquí</a>
-
             <button type="submit">Registrarse</button>
           </div>
         </form>

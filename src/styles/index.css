@@ -7,7 +7,9 @@
 	outline: none;
 	font-family: "Cascadia Code";
 }
-
+button{
+	cursor: pointer;
+}
 body{
    background-color: white;
 }
