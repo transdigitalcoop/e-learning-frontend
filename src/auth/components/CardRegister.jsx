@@ -89,7 +89,7 @@ export const CardRegister = () => {
             <input type="password" onChange={handleChange} required />
           </div>
           <div className="redirect">
-            <a href="">¿Ya tienes cuenta? Inicia sesion aquí</a>
+            <a href="/auth/">¿Ya tienes cuenta? Inicia sesion aquí</a>
             <button type="submit">Registrarse</button>
           </div>
         </form>

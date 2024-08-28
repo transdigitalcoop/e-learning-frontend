@@ -16,7 +16,7 @@ export const CardLogin = () => {
             <input type="password" placeholder="Contraseña" required />
           </div>
           <div className="redirect">
-            <a href="auth/register" className="Myriad">
+            <a href="/auth/" className="Myriad">
               Olvide mi contraseña
             </a>
             <button type="submit" className="Cascadia">

@@ -13,7 +13,7 @@ export const Login = () => {
             <p className="Myriad">
               ¡Registrate y empieza a aprender con nosotros!
             </p>
-            <button>Registrate ahora</button>
+            <a href="/auth/register">Registrate ahora</a>
           </div>
           <img src={Muñeco2} alt="Muñeco2" />
         </div>
