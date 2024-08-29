@@ -5,7 +5,13 @@ import { useAuth } from "../auth/hooks/useAuth";
 
 export const Navbar = () => {
   const { isAuthenticated } = useAuth();
+  const { logout } = useAuth(); // Obtén la función de logout del contexto
 
+  const handleLogout = (event) => {
+    event.preventDefault();
+    logout();
+    window.location.href = "/";
+  };
   return (
     <>
       <nav className="Nav-maincontainer">
@@ -23,7 +29,7 @@ export const Navbar = () => {
             </li>
             <li>
               <a href="">
-                <img src={avatar} alt="" />
+                <img src={avatar} alt="" onClick={handleLogout} />
               </a>
             </li>
           </ul>
