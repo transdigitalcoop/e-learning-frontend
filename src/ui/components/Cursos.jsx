@@ -29,22 +29,24 @@ export const Cursos = () => {
     <section className="Cursos">
       <h1>Contenidos por explorar</h1>
       <div className="contenido">
-        {loading ? (
-          <CursosLoader />
-        ) : (
-          cursos.map((curso, index) => (
-            <div className="card-curso" key={index}>
-              <div className="curso">
-                <img
-                  src={`http://127.0.0.1:8000/storage/${curso.icono}`}
-                  alt={curso.nombre}
-                />
-                <h2>{curso.nombre}</h2>
-                <a href={curso.enlace}>Explorar</a>
-              </div>
+        {cursos.map((curso, index) => (
+          <div className="card-curso" key={index}>
+            <div className="curso">
+              {loading ? (
+                <CursosLoader />
+              ) : (
+                <>
+                  <img
+                    src={`http://127.0.0.1:8000/storage/${curso.icono}`}
+                    alt={curso.nombre}
+                  />
+                  <h2>{curso.nombre}</h2>
+                  <a href={curso.enlace}>Explorar</a>
+                </>
+              )}
             </div>
-          ))
-        )}
+          </div>
+        ))}
       </div>
     </section>
   );
@@ -52,12 +54,12 @@ export const Cursos = () => {
 
 const CursosLoader = (props) => (
   <ContentLoader
-    speed={2}
+    speed={1}
     width={340}
     height={84}
     viewBox="0 0 340 84"
-    backgroundColor="#f3f3f3"
-    foregroundColor="#ecebeb"
+    backgroundColor="#cbf6f5"
+    foregroundColor="#86f9cd"
     {...props}
   >
     <rect x="0" y="0" rx="3" ry="3" width="67" height="11" />
