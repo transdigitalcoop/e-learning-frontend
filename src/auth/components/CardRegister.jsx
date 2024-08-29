@@ -1,6 +1,8 @@
 import "../styles/CardRegister.css";
 import axios from "axios";
 import { useState } from "react";
+import { toast } from "sonner";
+import { useNavigate } from "react-router-dom";
 export const CardRegister = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -8,8 +10,10 @@ export const CardRegister = () => {
     primer_apellido: "",
     segundo_apellido: "",
     email: "",
-    contraseña: "",
+    password: "",
+    confirmar_contraseña: "",
   });
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({
@@ -20,13 +24,27 @@ export const CardRegister = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // Validación de contraseñas
+    if (formData.password !== formData.confirmar_contraseña) {
+      toast.error("Las contraseñas no coinciden", {
+        className: "toast-e",
+      });
+      return; // Detiene la ejecución si las contraseñas no coinciden
+    }
     axios
       .post("http://127.0.0.1:8000/api/usuarios", formData)
       .then((response) => {
         console.log(response.data);
+        toast.success("Registrado exitosamente!", {
+          className: "toast-s",
+        });
+        navigate("/auth/");
       })
       .catch((error) => {
         console.error(error.response.data);
+        toast.error("Error al registrarse, intenta nuevamente", {
+          className: "toast-e",
+        });
       });
   };
 
@@ -53,7 +71,6 @@ export const CardRegister = () => {
                 type="text"
                 onChange={handleChange}
                 name="segundo_nombre"
-                required
               />
             </div>
             <div className="inputs">
@@ -86,7 +103,12 @@ export const CardRegister = () => {
               required
             />
             <label>Confirmar contraseña:</label>
-            <input type="password" onChange={handleChange} required />
+            <input
+              type="password"
+              onChange={handleChange}
+              name="confirmar_contraseña"
+              required
+            />
           </div>
           <div className="redirect">
             <a href="/auth/">¿Ya tienes cuenta? Inicia sesion aquí</a>
