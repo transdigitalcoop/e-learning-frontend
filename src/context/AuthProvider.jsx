@@ -1,18 +1,21 @@
-// src/context/AuthProvider.jsx
 import { createContext, useState } from "react";
 import PropTypes from "prop-types";
 
-export const AuthContext = createContext();
+const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(() => {
+    return localStorage.getItem("isAuthenticated") === "true";
+  });
 
   const login = () => {
     setIsAuthenticated(true);
+    localStorage.setItem("isAuthenticated", "true");
   };
 
   const logout = () => {
     setIsAuthenticated(false);
+    localStorage.removeItem("isAuthenticated");
   };
 
   return (
@@ -25,3 +28,5 @@ export const AuthProvider = ({ children }) => {
 AuthProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
+
+export { AuthContext };

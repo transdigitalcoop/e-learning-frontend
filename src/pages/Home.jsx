@@ -1,3 +1,9 @@
+import { Cursos } from "../ui/components/Cursos";
+
 export const Home = () => {
-  return <div>Hola</div>;
+  return (
+    <>
+      <Cursos />
+    </>
+  );
 };

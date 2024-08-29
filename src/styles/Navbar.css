@@ -4,7 +4,19 @@
     display: flex;
     padding: 10px;
 }
-
+.Nav-maincontainer ul{
+    width: 100%;
+    display: flex;
+    gap: 90px;
+    font-size: 20px;
+    align-items: center;
+    justify-content: end;
+    margin-right: 20px;
+}
+.Nav-maincontainer ul li a{
+    color: black;
+    text-decoration: none;
+}
 
 @media (max-width:480px) {
     .Nav-maincontainer img{
