@@ -33,15 +33,13 @@ export const CardRegister = () => {
     }
     axios
       .post("http://127.0.0.1:8000/api/usuarios", formData)
-      .then((response) => {
-        console.log(response.data);
+      .then(() => {
         toast.success("Registrado exitosamente!", {
           className: "toast-s",
         });
         navigate("/auth/");
       })
-      .catch((error) => {
-        console.error(error.response.data);
+      .catch(() => {
         toast.error("Error al registrarse, intenta nuevamente", {
           className: "toast-e",
         });
@@ -53,10 +51,8 @@ export const CardRegister = () => {
       <div className="Main-card">
         <div className="titulo-desc">
           <h1>Crea tu cuenta</h1>
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id in quas
-            deserunt cupiditate a earum laborum, amet voluptatibus sed sunt,
-            nihil
+          <p className="Myriad">
+            Empieza tu nueva experiencia de aprendizaje con TransDigitalCoop
           </p>
         </div>
         <form className="form-register" onSubmit={handleSubmit}>

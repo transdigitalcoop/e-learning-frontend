@@ -23,14 +23,12 @@ export const CardLogin = () => {
     e.preventDefault();
     axios
       .post("http://127.0.0.1:8000/api/logear", formData)
-      .then((response) => {
-        console.log(response.data);
+      .then(() => {
         toast.success("Sesión iniciada con éxito!", { className: "toast-s" });
         login();
         navigate("/");
       })
-      .catch((error) => {
-        console.error(error.response.data);
+      .catch(() => {
         toast.error("Error al iniciar sesión, verifica tus credenciales", {
           className: "toast-e",
         });
