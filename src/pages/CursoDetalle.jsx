@@ -1,10 +1,13 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Article from "../ui/components/skeleton/Article";
+import ArticleLoader from "../ui/components/skeleton/Article";
 
 export const CursoDetalle = () => {
   const { id } = useParams(); // Obtiene el id del curso desde la URL
   const [curso, setCurso] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchCursoDetalle = async () => {
@@ -13,27 +16,33 @@ export const CursoDetalle = () => {
           `http://127.0.0.1:8000/api/cursos/${id}`
         );
         setCurso(response.data);
+        setTimeout(() => {
+          setLoading(false);
+        }, 1800);
       } catch (error) {
         console.error("Error al obtener los detalles del curso:", error);
+        setLoading(false);
       }
     };
 
     fetchCursoDetalle();
   }, [id]);
 
-  if (!curso) {
-    return <p>Cargando detalles del curso...</p>;
-  }
-
   return (
-    <section className="CursoDetalle">
-      <h1>{curso.nombre}</h1>
-      <img
-        src={`http://127.0.0.1:8000/storage/${curso.icono}`}
-        alt={curso.nombre}
-      />
-      <p>{curso.descripcion}</p>
-      <a href={curso.enlace}>Explorar más</a>
-    </section>
+    <>
+      {loading ? (
+        <Article />
+      ) : (
+        <section className="CursoDetalle">
+          <h1>{curso.nombre}</h1>
+          <img
+            src={`http://127.0.0.1:8000/storage/${curso.icono}`}
+            alt={curso.nombre}
+          />
+          <p>{curso.descripcion}</p>
+          <a href={curso.enlace}>Explorar más</a>
+        </section>
+      )}
+    </>
   );
 };
