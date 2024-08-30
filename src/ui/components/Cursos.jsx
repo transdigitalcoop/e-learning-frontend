@@ -1,12 +1,13 @@
 import "../../styles/Cursos.css";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom"; // Importa useNavigate para redirigir
 import axios from "axios";
 import ContentLoader from "react-content-loader";
 
 export const Cursos = () => {
   const [cursos, setCursos] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  const navigate = useNavigate();
   useEffect(() => {
     const fetchCursos = async () => {
       try {
@@ -25,6 +26,10 @@ export const Cursos = () => {
     fetchCursos();
   }, []);
 
+  const handleVerMas = (cursoId) => {
+    navigate(`/curso/${cursoId}`); // Redirige a la página del curso específico
+  };
+
   return (
     <section className="Cursos">
       <h1>Contenidos por explorar</h1>
@@ -41,7 +46,13 @@ export const Cursos = () => {
                     alt={curso.nombre}
                   />
                   <h2>{curso.nombre}</h2>
-                  <a href={curso.enlace}>Explorar</a>
+                  <a
+                    onClick={() => {
+                      handleVerMas(curso.uuid);
+                    }}
+                  >
+                    Explorar
+                  </a>
                 </>
               )}
             </div>
