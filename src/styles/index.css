@@ -24,6 +24,13 @@ button{
     background-color: rgb(239, 151, 151);
     border: rgb(239, 151, 151) solid 1px;
 }
+.toast-w{
+	font-size: 18px;
+    height: 70px;
+    width: 100%;
+    background-color: rgb(239, 233, 151);
+    border: rgb(239, 233, 151) solid 1px;
+}
 .Myriad{
     font-family: "Myriad Variable Concept";
 }
@@ -32,4 +39,7 @@ button{
 }
 body{
    background-color: white;
+}
+a{
+	cursor: pointer;
 }

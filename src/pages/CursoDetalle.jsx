@@ -1,8 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Article from "../ui/components/skeleton/Article";
-import ArticleLoader from "../ui/components/skeleton/Article";
+import ArticleSkeleton from "../ui/components/ArticleSkeleton";
 
 export const CursoDetalle = () => {
   const { id } = useParams(); // Obtiene el id del curso desde la URL
@@ -31,7 +30,7 @@ export const CursoDetalle = () => {
   return (
     <>
       {loading ? (
-        <Article />
+        <ArticleSkeleton />
       ) : (
         <section className="CursoDetalle">
           <h1>{curso.nombre}</h1>
@@ -40,7 +39,6 @@ export const CursoDetalle = () => {
             alt={curso.nombre}
           />
           <p>{curso.descripcion}</p>
-          <a href={curso.enlace}>Explorar más</a>
         </section>
       )}
     </>
