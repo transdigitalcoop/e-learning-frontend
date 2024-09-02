@@ -1,0 +1,33 @@
+.main-containerhome{
+
+    height: 100vh;
+    width: 100%;
+}
+.Cursos{
+    width: 100%;
+    height: 480px;
+    background: linear-gradient(180deg, #FFF 0%, #BFF4FA 100%);
+    align-items: center;
+
+}
+.Cursos .titulo{
+    background-color: #0E3A48;
+    -webkit-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
+box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Cursos h1{
+    font-size: 30px;
+    color: white !important;
+}
+.contenido{ 
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    justify-content: space-evenly;
+    align-items: center;
+}

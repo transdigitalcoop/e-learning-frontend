@@ -1,10 +1,12 @@
 import ContentLoader from "react-content-loader";
 
-const Article = (props) => (
+const ArticleSkeleton = (props) => (
   <ContentLoader
     viewBox="0 0 400 160"
     height="90%"
     width="100%"
+    backgroundColor="#cbf6f5"
+    foregroundColor="#86f9cd"
     margin="auto"
     {...props}
   >
@@ -17,11 +19,11 @@ const Article = (props) => (
   </ContentLoader>
 );
 
-Article.metadata = {
+ArticleSkeleton.metadata = {
   name: "RoyalBhati",
   github: "royalbhati",
   description: "Simple Article",
-  filename: "Article",
+  filename: "ArticleSkeleton",
 };
 
-export default Article;
+export default ArticleSkeleton;

@@ -12,6 +12,8 @@ export const AuthProvider = ({ children }) => {
     setIsAuthenticated(true);
     localStorage.setItem("isAuthenticated", "true");
   };
+  // Desplazar la página al inicio
+  window.scrollTo({ top: 0, behavior: "smooth" });
 
   const logout = () => {
     setIsAuthenticated(false);

@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import ArticleSkeleton from "../ui/components/ArticleSkeleton";
+import ArticleSkeleton from "../ui/components/Loaders/ArticleSkeleton";
 
 export const CursoDetalle = () => {
   const { id } = useParams(); // Obtiene el id del curso desde la URL

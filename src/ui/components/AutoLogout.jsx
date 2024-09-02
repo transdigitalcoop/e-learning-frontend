@@ -11,7 +11,7 @@ export const AutoLogout = ({ children }) => {
   const [warningShown, setWarningShown] = useState(false);
   const navigate = useNavigate();
 
-  const logoutAfterInactivity = 3 * 60 * 1000; // 5 minutos de inactividad
+  const logoutAfterInactivity = 10 * 60 * 1000;
   const warningTime = logoutAfterInactivity - 2 * 60 * 1000; // 2 minutos antes del logout
 
   const resetTimer = useCallback(() => {
@@ -27,7 +27,7 @@ export const AutoLogout = ({ children }) => {
       const elapsedTime = Date.now() - lastActiveTime;
 
       if (elapsedTime > logoutAfterInactivity) {
-        toast.dismiss(); // Oculta el toast
+        toast.dismiss();
         logout();
         navigate("/login");
       } else if (elapsedTime > warningTime && !warningShown) {
