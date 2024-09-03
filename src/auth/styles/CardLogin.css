@@ -80,3 +80,11 @@
     width: 90%;
     padding-left: 10px;
 }
+
+
+@media (max-width: 480px) {
+    .card-login{
+        margin-top: 0px;
+        width: 80%;
+    }
+}
