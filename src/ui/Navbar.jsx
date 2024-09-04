@@ -2,11 +2,8 @@ import "../styles/Navbar.css";
 import logo from "../assets/images/Transdigital.png";
 import avatar from "../assets/icons/avatar.png";
 import { useAuth } from "../auth/hooks/useAuth";
-<<<<<<< HEAD
-import { Link } from "react-router-dom";
-=======
 import { useState } from "react";
->>>>>>> e07ca7e3caebb32cdf9765a79a95e53eeeefe73f
+import { Link } from "react-router-dom";
 
 export const Navbar = () => {
   const { isAuthenticated } = useAuth();
@@ -30,7 +27,6 @@ export const Navbar = () => {
         <img src={logo} alt="Transdigital logo" />
         {isAuthenticated && ( // Muestra estas opciones solo si el usuario está autenticado
           <ul className="Nav-options">
-<<<<<<< HEAD
             <li>
               <Link to="/leLinkrning">Mi aprendizaje</Link>
             </li>
@@ -40,29 +36,27 @@ export const Navbar = () => {
             <li>
               <Link to="/profile">Perfil</Link>
             </li>
-            <li>
-              <Link to="">
-                <img src={avatar} alt="" onClick={handleLogout} />
-              </Link>
-=======
+
+            <Link to="">
+              <img src={avatar} alt="" onClick={handleLogout} />
+            </Link>
             <li className="menu-icon" onClick={toggleMenu}>
               ☰
->>>>>>> e07ca7e3caebb32cdf9765a79a95e53eeeefe73f
             </li>
             <div className={`menu ${menuOpen ? "open" : ""}`}>
               <li>
-                <a href="/learning">Mi aprendizaje</a>
+                <Link to="/learning">Mi aprendizaje</Link>
               </li>
               <li>
-                <a href="/content">Contenidos</a>
+                <Link to="/content">Contenidos</Link>
               </li>
               <li>
-                <a href="/profile">Perfil</a>
+                <Link to="/profile">Perfil</Link>
               </li>
               <li>
-                <a href="">
+                <Link to="">
                   <img src={avatar} alt="" onClick={handleLogout} />
-                </a>
+                </Link>
               </li>
             </div>
           </ul>
