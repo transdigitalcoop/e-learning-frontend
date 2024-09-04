@@ -3,6 +3,7 @@ import logo from "../assets/images/Transdigital.png";
 import avatar from "../assets/icons/avatar.png";
 import { useAuth } from "../auth/hooks/useAuth";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export const Navbar = () => {
   const { isAuthenticated } = useAuth();
@@ -26,21 +27,6 @@ export const Navbar = () => {
         <img src={logo} alt="Transdigital logo" />
         {isAuthenticated && ( // Muestra estas opciones solo si el usuario está autenticado
           <ul className="Nav-options">
-            <li>
-              <Link to="/leLinkrning">Mi aprendizaje</Link>
-            </li>
-            <li>
-              <Link to="/content">Contenidos</Link>
-            </li>
-            <li>
-              <Link to="/profile">Perfil</Link>
-            </li>
-              <Link to="">
-                <img src={avatar} alt="" onClick={handleLogout} />
-              </Link>
-            <li className="menu-icon" onClick={toggleMenu}>
-              ☰
-            </li>
             <div className={`menu ${menuOpen ? "open" : ""}`}>
               <li>
                 <a href="/learning">Mi aprendizaje</a>
@@ -57,6 +43,9 @@ export const Navbar = () => {
                 </a>
               </li>
             </div>
+            <li className="menu-icon" onClick={toggleMenu}>
+              ☰
+            </li>
           </ul>
         )}
       </nav>
