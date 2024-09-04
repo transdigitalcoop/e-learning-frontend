@@ -2,11 +2,7 @@ import "../styles/Navbar.css";
 import logo from "../assets/images/Transdigital.png";
 import avatar from "../assets/icons/avatar.png";
 import { useAuth } from "../auth/hooks/useAuth";
-<<<<<<< HEAD
-import { Link } from "react-router-dom";
-=======
 import { useState } from "react";
->>>>>>> e07ca7e3caebb32cdf9765a79a95e53eeeefe73f
 
 export const Navbar = () => {
   const { isAuthenticated } = useAuth();
