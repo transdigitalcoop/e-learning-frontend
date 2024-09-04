@@ -1,26 +1,73 @@
-.Nav-maincontainer{
-    background-color: white;
-    height: 90px;
-    display: flex;
-    padding: 10px;
-}
-.Nav-maincontainer ul{
-    width: 100%;
-    display: flex;
-    gap: 90px;
-    font-size: 20px;
-    align-items: center;
-    justify-content: end;
-    margin-right: 20px;
-}
-.Nav-maincontainer ul li a{
-    color: black;
-    text-decoration: none;
+.Nav-maincontainer {
+  background-color: white;
+  height: 90px;
+  display: flex;
+  padding: 10px;
 }
 
-@media (max-width:480px) {
-    .Nav-maincontainer img{
-        height: 80px;
-        width: 300px;
-    }
+.menu-icon {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.Nav-maincontainer ul {
+  width: 100%;
+  display: flex;
+  gap: 90px;
+  font-size: 20px;
+  align-items: center;
+  justify-content: end;
+  margin-right: 20px;
+}
+.Nav-maincontainer ul li a {
+  color: black;
+  text-decoration: none;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 50px; /* Mantener el espacio entre los elementos */
+}
+
+@media (max-width: 480px) {
+
+  .Nav-maincontainer img {
+    height: 80px;
+    width: 300px;
+  }
+
+  .Nav-maincontainer ul {
+    font-size: 10px;
+  }
+
+  .Nav-maincontainer ul li a img {
+    display: none;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  .menu {
+    display: none;
+    flex-direction: column;
+    width: 90%;
+    background-color: #fff;
+    position: absolute;
+    top: 90px;
+    left: 0;
+    padding: 10px 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    gap: 10px; /* Reducir el espacio entre elementos en el menú desplegable */
+  }
+
+  .menu.open {
+    display: flex;
+  }
+
+  .menu li a{
+    font-size: 15px;
+  }
 }

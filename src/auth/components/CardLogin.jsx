@@ -39,15 +39,13 @@ export const CardLogin = () => {
       <div className="card-login">
         <div className="title">
           <h1>Iniciar Sesión</h1>
-          <p className="Myriad">
-            Inicia sesion para iniciar tu ruta con TransDigitalCoop
-          </p>
+          <p className="Myriad">Ingresa tus credenciales</p>
         </div>
         <form className="form-login" onSubmit={handleSubmit}>
           <div className="account Myriad">
             <input
               type="email"
-              placeholder="Correo electronico"
+              placeholder="Correo electrónico"
               name="email"
               onChange={handleChange}
               required
