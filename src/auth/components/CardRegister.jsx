@@ -2,7 +2,7 @@ import "../styles/CardRegister.css";
 import axios from "axios";
 import { useState } from "react";
 import { toast } from "sonner";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 export const CardRegister = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -107,7 +107,7 @@ export const CardRegister = () => {
             />
           </div>
           <div className="redirect">
-            <a href="/auth/">¿Ya tienes cuenta? Inicia sesion aquí</a>
+            <Link to="/auth/">¿Ya tienes cuenta? Inicia sesion aquí</Link>
             <button type="submit">Registrarse</button>
           </div>
         </form>

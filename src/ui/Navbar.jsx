@@ -2,6 +2,7 @@ import "../styles/Navbar.css";
 import logo from "../assets/images/Transdigital.png";
 import avatar from "../assets/icons/avatar.png";
 import { useAuth } from "../auth/hooks/useAuth";
+import { Link } from "react-router-dom";
 
 export const Navbar = () => {
   const { isAuthenticated } = useAuth();
@@ -19,18 +20,18 @@ export const Navbar = () => {
         {isAuthenticated && ( // Muestra estas opciones solo si el usuario está autenticado
           <ul className="Nav-options">
             <li>
-              <a href="/learning">Mi aprendizaje</a>
+              <Link to="/leLinkrning">Mi aprendizaje</Link>
             </li>
             <li>
-              <a href="/content">Contenidos</a>
+              <Link to="/content">Contenidos</Link>
             </li>
             <li>
-              <a href="/profile">Perfil</a>
+              <Link to="/profile">Perfil</Link>
             </li>
             <li>
-              <a href="">
+              <Link to="">
                 <img src={avatar} alt="" onClick={handleLogout} />
-              </a>
+              </Link>
             </li>
           </ul>
         )}

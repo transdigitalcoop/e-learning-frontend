@@ -2,7 +2,7 @@ import "../styles/CardLogin.css";
 import axios from "axios";
 import { useState } from "react";
 import { toast } from "sonner";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth.js";
 export const CardLogin = () => {
   const [formData, setFormData] = useState({
@@ -61,10 +61,10 @@ export const CardLogin = () => {
             />
           </div>
           <div className="redirect">
-            <a href="/auth/" className="Myriad">
+            <Link to="/auth/" className="Myriad boton">
               Olvide mi contraseña
-            </a>
-            <button type="submit" className="Cascadia">
+            </Link>
+            <button type="submit" className="Cascadia boton">
               Entrar
             </button>
           </div>

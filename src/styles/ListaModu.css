@@ -1,0 +1,73 @@
+.CursoContenido .infoMod{
+    border: 2px solid;
+}
+.CursoContenido .mod{
+    border-radius: 17.817px;
+    background: rgba(234, 240, 242, 0.89);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.CursoContenido .mod .title{
+    color: #00AFC4;
+    margin-top: 10px;
+}
+.CursoContenido .modnames{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    border-radius: 17.817px;
+    border: 1px solid #00AFC4;
+    height: 600px;
+    width: 500px;
+    background: #FFF;
+    color: #535353;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.CursoContenido .modnames .title{
+    color: #00AFC4;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.CursoContenido .modnames h2{
+    font-size: 28px;
+    color: #3A9742;
+    margin-left: 10px;
+}
+.CursoContenido .listmod{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.CursoContenido .listmod li{
+    height: 65px;
+    display: flex;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+.CursoContenido .listmod a{
+    color: #535353;
+    font-size: 21px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.CursoContenido .listmod li:hover{
+    background: #D4F9D9;
+    color: #3A9742;
+}
+.CursoContenido .Icono-arrow{
+    height: 100%;
+    color: #94D89E;
+    cursor: pointer;
+    margin-right: 20px;
+}

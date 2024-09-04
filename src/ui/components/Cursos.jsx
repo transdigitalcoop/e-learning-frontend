@@ -1,7 +1,6 @@
 import "../../styles/Cursos.css";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import Iconop from "../../assets/icons/Icono.png";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import CursosLoader from "./loaders/CursosLoader";
 
@@ -46,18 +45,17 @@ export const Cursos = () => {
           <div className="card-curso" key={index}>
             <div className="curso">
               <img
-                src={Iconop}
-                // src={`http://127.0.0.1:8000/storage/${curso.icono}`}
-                // alt={curso.nombre}
+                src={`https://res.cloudinary.com/digqcdimk/image/upload/v1725315836/${curso.icono}`}
+                alt={curso.nombre}
               />
               <h3>{curso.nombre}</h3>
-              <a
+              <Link
                 onClick={() => {
                   handleVerMas(curso.uuid);
                 }}
               >
                 Explorar
-              </a>
+              </Link>
             </div>
           </div>
         ))

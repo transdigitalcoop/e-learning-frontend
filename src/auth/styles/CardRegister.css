@@ -90,6 +90,11 @@
     color: white;
     border-radius: 4.097px;
     background: #00AFC4;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+.Main-card button:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 .titulo-desc{
     display: flex;

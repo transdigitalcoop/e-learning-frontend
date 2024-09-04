@@ -5,8 +5,8 @@ const ArticleSkeleton = (props) => (
     viewBox="0 0 400 160"
     height="90%"
     width="100%"
-    backgroundColor="#cbf6f5"
-    foregroundColor="#86f9cd"
+    backgroundColor="#f3f3f3"
+    foregroundColor="#ecebeb"
     margin="auto"
     {...props}
   >

@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Icono from "../../assets/icons/Icono.png";
 import {
   ChevronDownIcon,
   ChevronUpIcon,
@@ -67,8 +66,7 @@ export const Accordion = () => {
                   <div className="course-header">
                     <div className="info">
                       <img
-                        src={Icono}
-                        // src={course.icono}
+                        src={`https://res.cloudinary.com/digqcdimk/image/upload/v1725315836/${course.icono}`}
                         alt={course.nombre}
                         className="course-icon"
                       />
