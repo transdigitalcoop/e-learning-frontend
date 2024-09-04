@@ -26,7 +26,6 @@ export const Navbar = () => {
         <img src={logo} alt="Transdigital logo" />
         {isAuthenticated && ( // Muestra estas opciones solo si el usuario está autenticado
           <ul className="Nav-options">
-<<<<<<< HEAD
             <li>
               <Link to="/leLinkrning">Mi aprendizaje</Link>
             </li>
@@ -36,14 +35,11 @@ export const Navbar = () => {
             <li>
               <Link to="/profile">Perfil</Link>
             </li>
-            <li>
               <Link to="">
                 <img src={avatar} alt="" onClick={handleLogout} />
               </Link>
-=======
             <li className="menu-icon" onClick={toggleMenu}>
               ☰
->>>>>>> e07ca7e3caebb32cdf9765a79a95e53eeeefe73f
             </li>
             <div className={`menu ${menuOpen ? "open" : ""}`}>
               <li>

@@ -1,5 +1,5 @@
 import "../styles/Login.css";
-import Muñeco2 from "../../assets/images/MuñecoTransDigital2.png";
+import Muñeco2 from "../../assets/images/MuñecoTransDigital2.webp";
 import { CardLogin } from "../components/CardLogin";
 
 export const Login = () => {
