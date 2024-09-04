@@ -29,18 +29,18 @@ export const Navbar = () => {
           <ul className="Nav-options">
             <div className={`menu ${menuOpen ? "open" : ""}`}>
               <li>
-                <a href="/learning">Mi aprendizaje</a>
+                <Link to="/learning">Mi aprendizaje</Link>
               </li>
               <li>
-                <a href="/content">Contenidos</a>
+                <Link to="/content">Contenidos</Link>
               </li>
               <li>
-                <a href="/profile">Perfil</a>
+                <Link to="/profile">Perfil</Link>
               </li>
               <li>
-                <a href="">
+                <Link to="">
                   <img src={avatar} alt="" onClick={handleLogout} />
-                </a>
+                </Link>
               </li>
             </div>
             <li className="menu-icon" onClick={toggleMenu}>
