@@ -1,0 +1,105 @@
+/* Apartado para la card del progreso */
+.curso-progress{
+    display: flex;
+    border: 2px solid;
+    justify-content: center;
+    align-items: center;
+}
+
+.curso-progress .cardp{
+    border-radius: 17.817px;
+    border: 1px solid #00AFC4;
+    background: #FFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    height: 300px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.curso-progress .cardp .progre{
+    border: 2px solid;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 10px 0;
+}
+.curso-progress .cardp .progre .barra{
+    color: #94D89E ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid;
+    gap: 20px;
+} 
+.barra{ 
+    color: #94D89E;
+    font-family: "Myriad Variable Concept";
+    font-size: 24.317px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.progress-bar {
+    width: 100%;
+    height: 20px;
+    appearance: none;
+    -webkit-appearance: none;
+    border-radius: 8px;
+    background-color: #E3E3E3;
+    overflow: hidden;
+  }
+  
+  /* Estilo del interior de la barra de progreso */
+  .progress-bar::-webkit-progress-bar {
+    background-color: #E3E3E3;
+    border-radius: 8px;
+  }
+  
+  .progress-bar::-webkit-progress-value {
+    background-color: #94D89E;
+    border-radius: 8px 0 0 8px; /* Mantiene esquinas redondeadas solo en la parte izquierda */
+  }
+  
+  .progress-bar::-moz-progress-bar {
+    background-color: #94D89E;
+    border-radius: 8px;
+  }
+.curso-progress .cardp .progre h1{
+    color: #535353;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.curso-progress .cardp .boton{
+    border: 2px solid;
+    width: 80%;
+    height: 60px;
+    min-height: 60px;
+    max-height: 60px;
+    margin-bottom: 10px;
+}
+.curso-progress .cardp .boton button{
+    background-color: #00AFC4;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    color: white;
+    font-size: 18px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4.508px;
+
+}
+
+/* Diseño de la duracion */
+.curso-progress .cardp .duracion{
+    border: 2px solid;
+    width: 80%;
+    height: 100px;
+}

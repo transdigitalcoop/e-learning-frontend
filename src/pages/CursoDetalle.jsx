@@ -4,6 +4,7 @@ import axios from "axios";
 import ArticleSkeleton from "../ui/components/Loaders/ArticleSkeleton";
 import "../styles/CursoDetalle.css";
 import { ListaModu } from "../ui/components/ListaModu";
+import { CursoProgreso } from "../ui/components/CursoProgreso";
 export const CursoDetalle = () => {
   const { id } = useParams();
   const [curso, setCurso] = useState(null);
@@ -49,21 +50,11 @@ export const CursoDetalle = () => {
                 />
               </div>
               <div className="cont">
-                <h2>Transformación digital</h2>
                 <h1>{curso.nombre}</h1>
-                <p className="Myriad">{curso.descripcion}</p>
+                <p className="Cascadia">{curso.descripcion}</p>
               </div>
             </div>
-            <div className="curso-progress">
-              <div className="cardp">
-                <h2>Progreso</h2>
-                <progress
-                  value={curso.progress}
-                  max="100"
-                  className="progress-bar"
-                ></progress>
-              </div>
-            </div>
+            <CursoProgreso curso={curso} />
           </section>
           <section className="CursoContenido">
             <div className="infoMod"></div>

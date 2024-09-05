@@ -23,6 +23,7 @@
 }
 .CursoDetalle .curso .cont{
     display: flex;
+    border: 2px solid;
     width: 100%;
     flex-direction: column;
     justify-content: center;
@@ -30,40 +31,22 @@
     align-items: normal;
 }
 .cont h1{
+    color: #94D89E;
     font-size: 50px;
 }
-.cont h2{
-    color: #94D89E;
-}
+
 .cont p{
     color: #FFF;
     font-size: 16.898px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-}
-/* Apartado para la card del progreso */
-.curso-progress{
-    display: flex;
     border: 2px solid;
-    justify-content: center;
-    align-items: center;
+    width: 80%;
 }
-
-.curso-progress .cardp{
-    border-radius: 17.817px;
-    border: 1px #00AFC4;
-    background: #FFF;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    height: 300px;
-    width: 90%;
-}
-
 /* Seccion del contenido del curso */
 .CursoContenido{
     height: 80vh;
     display: grid;
     grid-template-columns: 1.3fr 1fr;
 }
-
-
