@@ -1,16 +1,17 @@
-.main-containerhome{
-
-    height: 100vh;
+.main-containerhome {
     width: 100%;
+    /* Elimina height: 100vh para permitir que el contenido crezca dinámicamente */
 }
-.Cursos{
+
+.Cursos {
     width: 100%;
     height: 480px;
-    background: linear-gradient(180deg, #FFF 0%, #BFF4FA 100%);
+    /* background: linear-gradient(180deg, #FFF 0%, #BFF4FA 100%); */
+    background-color: #d7f4f8;
     align-items: center;
-
 }
-.Cursos .titulo{
+
+.Cursos .titulo {
     background-color: #0E3A48;
     -webkit-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
@@ -20,14 +21,33 @@
     align-items: center;
     justify-content: center;
 }
-.Cursos h1{
+
+.Cursos h1 {
     font-size: 30px;
     color: white !important;
 }
-.contenido{ 
+
+.contenido {
     width: 100%;
     display: flex;
     gap: 10px;
     justify-content: space-evenly;
     align-items: center;
 }
+
+.accordion-container {
+    width: 80%;
+    margin: 40px auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* Asegura que el contenedor tenga margen suficiente debajo del contenido */
+    margin-bottom: 50px; /* Añade espacio entre el accordion y el footer */
+}
+
+.accordion-item {
+    border-bottom: 1px solid #ddd;
+}
+
+/* Otros estilos... */

@@ -5,20 +5,17 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(() => {
-    return localStorage.getItem("isAuthenticated") === "true";
+    return localStorage.getItem("token") !== null;
   });
 
-  const login = () => {
+  const login = (token) => {
     setIsAuthenticated(true);
-    localStorage.setItem("isAuthenticated", "true");
+    localStorage.setItem("token", token);
   };
-  // Desplazar la página al inicio
-  window.scrollTo({ top: 0, behavior: "smooth" });
 
   const logout = () => {
     setIsAuthenticated(false);
-    localStorage.removeItem("isAuthenticated");
-    localStorage.clear();
+    localStorage.removeItem("token");
   };
 
   return (

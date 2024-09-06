@@ -1,4 +1,6 @@
 import "../../styles/CursoProgreso.css";
+import { ClockIcon } from "@heroicons/react/24/solid";
+
 export const CursoProgreso = ({ curso }) => {
   return (
     <>
@@ -15,7 +17,15 @@ export const CursoProgreso = ({ curso }) => {
               <p>{curso != null ? curso.progreso : "0"}%</p>
             </div>
           </div>
-          <div className="duracion"></div>
+          <div className="detailsContainer">
+            <div className="detailItem">
+              {/* <h1>Duración</h1> */}
+              <ClockIcon className="icon" />
+              <span className="text">
+                {curso.horas}Horas y {curso.minutos} minutos
+              </span>
+            </div>
+          </div>
           <div className="boton">
             <button>
               <h1>Continuar</h1>

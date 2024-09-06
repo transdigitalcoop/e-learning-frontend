@@ -5,6 +5,7 @@ import ArticleSkeleton from "../ui/components/Loaders/ArticleSkeleton";
 import "../styles/CursoDetalle.css";
 import { ListaModu } from "../ui/components/ListaModu";
 import { CursoProgreso } from "../ui/components/CursoProgreso";
+import { InfoModu } from "../ui/components/InfoModu";
 export const CursoDetalle = () => {
   const { id } = useParams();
   const [curso, setCurso] = useState(null);
@@ -57,7 +58,7 @@ export const CursoDetalle = () => {
             <CursoProgreso curso={curso} />
           </section>
           <section className="CursoContenido">
-            <div className="infoMod"></div>
+            <InfoModu />
             <ListaModu data={data} curso={curso} />
           </section>
         </div>

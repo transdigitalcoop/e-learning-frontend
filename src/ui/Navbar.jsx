@@ -29,7 +29,7 @@ export const Navbar = () => {
           <ul className="Nav-options">
             <div className={`menu ${menuOpen ? "open" : ""}`}>
               <li>
-                <Link to="/learning">Mi aprendizaje</Link>
+                <Link to="/">Mi aprendizaje</Link>
               </li>
               <li>
                 <Link to="/content">Contenidos</Link>

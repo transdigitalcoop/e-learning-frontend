@@ -6,7 +6,7 @@ export const ListaModu = ({ data, curso }) => {
     <div className="mod">
       <div className="modnames">
         <div className="title">
-          <h1>Secciones</h1>
+          <h1>Modulos</h1>
         </div>
         <div className="listmod">
           <h2>{curso.nombre}</h2>

@@ -1,20 +1,21 @@
-.detalle-cont{
-    border: 2px solid;
-}
 .CursoDetalle{
-    border: 2px solid;
     background: #093F51;
     width: 100%;
-    height: 55vh;
+    height: 90vh;
     display: grid;
-    grid-template-columns: 1.6fr 1fr;
+    grid-template-columns: 1.5fr 1fr;
 }
 .CursoDetalle .curso{
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
 }
 .CursoDetalle .curso img{
-    height: 290px;
+    height: 240px;
 }
+
 .CursoDetalle .curso .img{
     display: flex;
     width: 50%;
@@ -23,30 +24,31 @@
 }
 .CursoDetalle .curso .cont{
     display: flex;
-    border: 2px solid;
-    width: 100%;
+    gap: 20px;
+    width: 60%;
     flex-direction: column;
     justify-content: center;
     color: white;
     align-items: normal;
+    text-align: center;
 }
+
 .cont h1{
     color: #94D89E;
     font-size: 50px;
 }
 
 .cont p{
+    text-align: left;
     color: #FFF;
-    font-size: 16.898px;
+    font-size: 18px;
     font-style: normal;
     font-weight: 400;
-    line-height: normal;
-    border: 2px solid;
-    width: 80%;
+    width: 100%;
 }
 /* Seccion del contenido del curso */
 .CursoContenido{
-    height: 80vh;
+    height: 100vh;
     display: grid;
     grid-template-columns: 1.3fr 1fr;
 }

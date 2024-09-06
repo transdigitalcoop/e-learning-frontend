@@ -23,9 +23,10 @@ export const CardLogin = () => {
     e.preventDefault();
     axios
       .post("http://127.0.0.1:8000/api/logear", formData)
-      .then(() => {
+      .then((response) => {
+        const token = response.data.token; // Obtén el token de la respuesta
         toast.success("Sesión iniciada con éxito!", { className: "toast-s" });
-        login();
+        login(token); // Pasa el token a la función login
         navigate("/");
       })
       .catch(() => {
