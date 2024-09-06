@@ -2,6 +2,7 @@
 import { Cursos } from "../ui/components/Cursos";
 import "../styles/Home.css";
 import { Accordion } from "../ui/components/Acorddion";
+
 export const Home = () => {
   // const [Loading, setLoading] = useState(true);
 

@@ -5,18 +5,24 @@
 
 .Cursos {
     width: 100%;
-    height: 480px;
-    /* background: linear-gradient(180deg, #FFF 0%, #BFF4FA 100%); */
-    background-color: #d7f4f8;
+    height: 630px;
+    background: linear-gradient(180deg, #afe9f1 0%, #d7f4f8 90%, rgba(215, 244, 248, 0) 100%);
     align-items: center;
 }
 
+
+
+.miruta{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .Cursos .titulo {
     background-color: #0E3A48;
     -webkit-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
     box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
-    height: 60px;
+    height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -26,7 +32,6 @@
     font-size: 30px;
     color: white !important;
 }
-
 .contenido {
     width: 100%;
     display: flex;

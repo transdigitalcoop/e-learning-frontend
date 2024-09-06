@@ -1,18 +1,24 @@
 import "../styles/Footer.css";
 import Icono from "../assets/icons/IconoTr.png";
+import { useAuth } from "../auth/hooks/useAuth";
 export const Footer = () => {
+  const { isAuthenticated } = useAuth();
   return (
     <>
-      <footer className="footer">
-        <div className="footer-container">
-          <div className="footer-logo">
-            <img className="logo" src={Icono} alt="Transdigital logo" />
+      {isAuthenticated && (
+        <footer className="footer">
+          <div className="footer-container">
+            <div className="footer-logo">
+              <img className="logo" src={Icono} alt="Transdigital logo" />
+            </div>
+            <div className="footer-info">
+              <p>TransdigitalCoop</p>
+              <p>© 2024 TransdigitalCoop. Todos los derechos reservados.</p>
+            </div>
           </div>
-          <div className="footer-info">
-            <p>TransdigitalCoop</p>
-            <p>© 2024 TransdigitalCoop. Todos los derechos reservados.</p>
-          </div>
-          {/* <div className="footer-social">
+        </footer>
+      )}
+      {/* <div className="footer-social">
             <a
               href="https://www.facebook.com/transdigital"
               target="_blank"
@@ -44,8 +50,6 @@ export const Footer = () => {
               />
             </a>
           </div> */}
-        </div>
-      </footer>
     </>
   );
 };

@@ -12,6 +12,14 @@ export const Accordion = () => {
   const [courses, setCourses] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [activeIndex, setActiveIndex] = useState(null);
+  const [abierto, setabierto] = useState(false);
+  const expand = () => {
+    setabierto(!abierto);
+    !abierto
+      ? (window.location.href = "#miscursos")
+      : window.history.pushState("", document.title, window.location.pathname),
+      window.scrollTo(0, 0);
+  };
 
   useEffect(() => {
     axios
@@ -32,7 +40,11 @@ export const Accordion = () => {
   };
 
   return (
-    <div className="accordion-container">
+    <div
+      onClick={expand}
+      id="miscursos"
+      className={`accordion-container ${abierto ? "abierto" : ""} `}
+    >
       <div className="accordion-item">
         <div onClick={() => toggleItem(0)} className="accordion-title">
           <span>Mis Cursos</span>
@@ -54,7 +66,10 @@ export const Accordion = () => {
               </>
             ) : Array.isArray(courses) && courses.length > 0 ? (
               courses.map((course) => (
-                <div key={course.id} className="course-container">
+                <div
+                  key={course.id}
+                  className="course-container animate__animated animate__backInUp"
+                >
                   <div className="course-progress">
                     <progress
                       value={course.progress}
