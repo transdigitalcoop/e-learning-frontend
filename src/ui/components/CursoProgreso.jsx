@@ -1,7 +1,8 @@
+import { Link } from "react-router-dom";
 import "../../styles/CursoProgreso.css";
 import { ClockIcon } from "@heroicons/react/24/solid";
 
-export const CursoProgreso = ({ curso }) => {
+export const CursoProgreso = ({ curso, modulo }) => {
   return (
     <>
       <div className="curso-progress">
@@ -19,7 +20,6 @@ export const CursoProgreso = ({ curso }) => {
           </div>
           <div className="detailsContainer">
             <div className="detailItem">
-              {/* <h1>Duración</h1> */}
               <ClockIcon className="icon" />
               <span className="text">
                 {curso.horas}Horas y {curso.minutos} minutos
@@ -27,9 +27,11 @@ export const CursoProgreso = ({ curso }) => {
             </div>
           </div>
           <div className="boton">
+            {/* <Link to={`/modulo/${primerModulo.uuid}`}> */}
             <button>
               <h1>Continuar</h1>
             </button>
+            {/* </Link> */}
           </div>
         </div>
       </div>

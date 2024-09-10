@@ -1,16 +1,18 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import ArticleSkeleton from "../ui/components/Loaders/ArticleSkeleton";
 import "../styles/CursoDetalle.css";
 import { ListaModu } from "../ui/components/ListaModu";
 import { CursoProgreso } from "../ui/components/CursoProgreso";
 import { InfoModu } from "../ui/components/InfoModu";
+import CursoSkeleton from "../ui/components/loaders/CursoSkeleton";
+
 export const CursoDetalle = () => {
   const { id } = useParams();
   const [curso, setCurso] = useState(null);
-  const [data, setData] = useState(null);
+  const [modulo, setModulo] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [descripcionModulo, setDescripcionModulo] = useState(""); // Nuevo estado
 
   useEffect(() => {
     const fetchCursoDetalle = async () => {
@@ -19,29 +21,27 @@ export const CursoDetalle = () => {
           `http://127.0.0.1:8000/api/cursos/${id}`
         );
         setCurso(response.data.curso);
-        setData(response.data.modulos);
-        setTimeout(() => {
-          setLoading(false);
-        }, 1800);
+        setModulo(response.data.modulos);
+        setLoading(false);
       } catch (error) {
         console.error("Error al obtener los detalles del curso:", error);
-        console.error(
-          "Detalles del error:",
-          error.response ? error.response.data : "No response data"
-        );
         setLoading(false);
       }
     };
-
     fetchCursoDetalle();
   }, [id]);
-  console.log(data);
+
+  // Función para actualizar la descripción del módulo
+  const handleMouseEnter = (descripcion) => {
+    setDescripcionModulo(descripcion);
+  };
+
   return (
     <>
       {loading ? (
-        <ArticleSkeleton />
+        <CursoSkeleton />
       ) : (
-        <div className="detalle-cont">
+        <div className="detalle-cont animate__animated animate__fadeIn animate__faster">
           <section className="CursoDetalle">
             <div className="curso">
               <div className="img">
@@ -55,11 +55,16 @@ export const CursoDetalle = () => {
                 <p className="Cascadia">{curso.descripcion}</p>
               </div>
             </div>
-            <CursoProgreso curso={curso} />
+            <CursoProgreso curso={curso} modulo={modulo} />
           </section>
           <section className="CursoContenido">
-            <InfoModu />
-            <ListaModu data={data} curso={curso} />
+            <InfoModu descripcion={descripcionModulo} />{" "}
+            {/* Pasar la descripción */}
+            <ListaModu
+              data={modulo}
+              curso={curso}
+              onMouseEnterModulo={handleMouseEnter} // Pasar la función de manejo del mouse
+            />
           </section>
         </div>
       )}

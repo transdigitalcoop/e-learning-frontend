@@ -14,7 +14,7 @@ export const Home = () => {
 
   return (
     <>
-      <div className="main-containerhome">
+      <div className="main-containerhome animate__animated animate__fadeIn">
         <section className="Cursos">
           <div className="titulo">
             <h1>Contenidos por explorar</h1>

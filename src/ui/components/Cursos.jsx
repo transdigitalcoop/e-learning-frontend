@@ -30,7 +30,10 @@ export const Cursos = () => {
       {loading ? (
         <>
           {[...Array(5)].map((_, index) => (
-            <div className="card-curso" key={index}>
+            <div
+              className="card-curso animate__animated animate__fadeIn"
+              key={index}
+            >
               <CursosLoader />
             </div>
           ))}

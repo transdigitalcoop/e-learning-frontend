@@ -41,7 +41,6 @@ export const Accordion = () => {
 
   return (
     <div
-      onClick={expand}
       id="miscursos"
       className={`accordion-container ${abierto ? "abierto" : ""} `}
     >

@@ -8,6 +8,7 @@ const CursosLoader = (props) => (
     viewBox="0 0 390 350"
     backgroundColor="#f3f3f3"
     foregroundColor="#ecebeb"
+    className="animate__animated animate__fadeIn animate__faster"
     {...props}
   >
     {/* Rectángulo para la imagen */}

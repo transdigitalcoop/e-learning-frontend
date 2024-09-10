@@ -5,7 +5,7 @@ import { CardLogin } from "../components/CardLogin";
 export const Login = () => {
   return (
     <>
-      <div className="Mainlogin">
+      <div className="Mainlogin animate__animated animate__fadeIn animate__faster">
         <CardLogin />
         <div className="dibujo2">
           <div className="nuevo">
