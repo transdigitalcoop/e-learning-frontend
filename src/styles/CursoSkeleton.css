@@ -2,11 +2,13 @@
 .skeleton-container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 20px;
     padding: 20px;
     background: #f0f0f0;
     border-radius: 15px;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+    height: 90vh;
   }
   
   /* Skeleton for course image */

@@ -23,7 +23,11 @@ export const Navbar = () => {
 
   return (
     <>
-      <nav className="Nav-maincontainer">
+      <nav
+        className={
+          !isAuthenticated ? `Nav-maincontainer` : `Nav-maincontainer shad`
+        }
+      >
         <img src={logo} alt="Transdigital logo" />
         {isAuthenticated && ( // Muestra estas opciones solo si el usuario está autenticado
           <ul className="Nav-options">

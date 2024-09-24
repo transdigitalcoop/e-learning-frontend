@@ -1,0 +1,63 @@
+/* Contenedor principal */
+.dropdown-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+/* Estilo del mensaje de carga */
+.loading-text {
+  font-size: 1.2em;
+  color: #555;
+}
+
+/* Estilo general del select */
+select {
+  width: 90%;
+  max-width: 400px;
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 8px;
+  border: 2px solid blac#fff;
+  background-color: #94D89E;
+  color: black; /* Corregido a 'black' */
+  transition: border-color 0.3s, box-shadow 0.3s;
+  outline: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo al seleccionar el select (hover) */
+select:hover {
+  border-color: #94D89E;
+}
+
+/* Estilo al hacer foco */
+select:focus {
+  border-color: #94D89E;
+  box-shadow: 0 0 6px rgba(0, 255, 76, 0.363); /* Sombra verde lima */
+}
+
+/* Estilo de las opciones del dropdown */
+option {
+  padding: 8px;
+  background-color: white;
+  color: #333;
+  font-size: 1em;
+}
+
+/* Estilo para mejorar el mensaje de carga */
+.loading-text {
+  font-size: 1.1em;
+  color: #888;
+}
+
+
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 600px) {
+  select {
+    width: 90%;
+  }
+}
