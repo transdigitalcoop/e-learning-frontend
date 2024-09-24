@@ -1,4 +1,4 @@
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import "../styles/Modulo.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -12,9 +12,9 @@ import ModuloLessonsLoader from "../ui/components/loaders/ModuloLessonsLoader";
 import { Video } from "../ui/components/Video";
 
 export const Modulo = () => {
-  const { id } = useParams(); // Solo usamos el ID del módulo desde los params
+  const { id } = useParams(); // Obtener el ID del módulo desde los params
   const [modulo, setModulo] = useState(null);
-  const [curso, setCurso] = useState(null);
+  const [curso, setCurso] = useState(null); // ID del curso relacionado con el módulo
   const [lecciones, setLecciones] = useState([]);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0); // Controla el índice de la lección actual
   const [isLoadingLecciones, setIsLoadingLecciones] = useState(true);
@@ -30,7 +30,7 @@ export const Modulo = () => {
         `http://127.0.0.1:8000/api/modulo/${moduloId}`
       );
       setModulo(response.data.modulo || []);
-      setCurso(response.data.curso);
+      setCurso(response.data.curso); // Guardar el curso al que pertenece este módulo
       setLecciones(response.data.lecciones);
       setCurrentVideoIndex(0); // Resetear el índice de la lección cuando cambia el módulo
       setIsLoadingLecciones(false);
@@ -74,11 +74,20 @@ export const Modulo = () => {
     }
   };
 
+  // Redirigir al detalle del curso cuando se hace clic en el botón de retroceso
+  const handleBackToCourse = () => {
+    if (curso) {
+      navigate(`/curso/${curso.uuid}`); // Redirigir al detalle del curso con su ID
+    } else {
+      console.log("No se ha podido obtener el curso.");
+    }
+  };
+
   return (
     <>
-      <div className="contain-lesson">
+      <div className="contain-lesson animate__animated animate__fadeIn animate__faster">
         <nav className="sidebar">
-          <button className="back-button" onClick={() => navigate(-1)}>
+          <button className="back-button" onClick={handleBackToCourse}>
             <ArrowLeftIcon className="Icono-arrow" />
           </button>
 
@@ -100,8 +109,8 @@ export const Modulo = () => {
                   onClick={() => setCurrentVideoIndex(index)} // Actualiza el video al seleccionar una lección
                   style={{
                     cursor: "pointer",
-                    // backgroundColor:
-                    // currentVideoIndex === index ? "#f0f0f0" : "transparent", // Resalta la lección seleccionada
+                    backgroundColor:
+                      currentVideoIndex === index ? "#06161c" : "transparent", // Resalta la lección seleccionada
                   }}
                 >
                   <h2>{leccion.nombre}</h2>

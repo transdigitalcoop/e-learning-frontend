@@ -5,6 +5,7 @@
   align-items: center;
   justify-content: center;
   margin: 20px 0;
+  width: 100%;
 }
 
 /* Estilo del mensaje de carga */

@@ -42,13 +42,14 @@
 
 .sidebar ul li {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     width: 100%;
     border-bottom: 1px solid rgba(128, 128, 128, 0.437);
     align-items: center;
     color: white;
     margin-top: 4px;
-    padding: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     border-radius: 8px;
     text-align: left;
     cursor: pointer; /* Cambiamos el cursor a pointer para que parezca interactivo */
@@ -61,7 +62,7 @@
 
 .sidebar ul li h2 {
     color: white;
-    font-size: 23px;
+    font-size: 20px;
     font-weight: 400;
     margin: 0; /* Asegura que no haya margenes adicionales */
 }
@@ -91,6 +92,12 @@
     width: 34px;
     height: 34px;
     color: white;
+}
+.dashboard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 .dashboard ul li {
