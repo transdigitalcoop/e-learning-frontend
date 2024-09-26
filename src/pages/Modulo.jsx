@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import "../styles/Modulo.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import {
   ArrowRightCircleIcon,
@@ -10,74 +10,72 @@ import {
 import { CursosDropdown } from "../ui/components/CursosDropDown";
 import ModuloLessonsLoader from "../ui/components/loaders/ModuloLessonsLoader";
 import { Video } from "../ui/components/Video";
+import { AuthContext } from "../context/AuthProvider";
 
 export const Modulo = () => {
   const { id } = useParams(); // Obtener el ID del módulo desde los params
   const [modulo, setModulo] = useState(null);
-  const [curso, setCurso] = useState(null); // ID del curso relacionado con el módulo
+  const [curso, setCurso] = useState(null);
   const [lecciones, setLecciones] = useState([]);
-  const [currentVideoIndex, setCurrentVideoIndex] = useState(0); // Controla el índice de la lección actual
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [isLoadingLecciones, setIsLoadingLecciones] = useState(true);
-  const [modulos, setModulos] = useState([]); // Para manejar todos los módulos
+  const [modulos, setModulos] = useState([]);
+  const { uuid } = useContext(AuthContext); // Obtenemos el UUID del usuario desde el contexto
 
   const navigate = useNavigate();
 
   // Obtener el detalle del módulo actual
   const fetchModuloDetalle = async (moduloId) => {
     setIsLoadingLecciones(true);
+    const apiUrl = import.meta.env.VITE_API_URL;
     try {
-      const response = await axios.get(
-        `http://127.0.0.1:8000/api/modulo/${moduloId}`
-      );
+      const response = await axios.get(`${apiUrl}/api/modulo/${moduloId}`);
       setModulo(response.data.modulo || []);
-      setCurso(response.data.curso); // Guardar el curso al que pertenece este módulo
+      setCurso(response.data.curso);
       setLecciones(response.data.lecciones);
-      setCurrentVideoIndex(0); // Resetear el índice de la lección cuando cambia el módulo
+      setCurrentVideoIndex(0);
       setIsLoadingLecciones(false);
-
-      const cursoResponse = await axios.get(
-        `http://127.0.0.1:8000/api/curso/${response.data.curso.uuid}/modulos`
-      );
-      setModulos(cursoResponse.data.modulos);
     } catch (error) {
       console.error("Error al obtener los detalles del módulo:", error);
       setIsLoadingLecciones(false);
     }
   };
 
+  // Completar el módulo actual
+  const CompletarModulo = async () => {
+    const apiUrl = import.meta.env.VITE_API_URL;
+    try {
+      // Hacemos la petición con el UUID del usuario
+      const response = await axios.post(
+        `${apiUrl}/${uuid}/modulos/${modulo.uuid}/completar`
+      );
+
+      const siguienteModuloId = response.data.siguienteModuloId;
+      if (siguienteModuloId) {
+        fetchModuloDetalle(siguienteModuloId); // Cargar el siguiente módulo
+      } else {
+        console.log("No hay más módulos disponibles.");
+      }
+    } catch (error) {
+      console.error("Error al completar el módulo:", error);
+    }
+  };
+
   useEffect(() => {
-    fetchModuloDetalle(id);
+    fetchModuloDetalle(id); // Cargar el módulo inicial
   }, [id]);
 
   const handleNextVideo = () => {
     if (currentVideoIndex < lecciones.length - 1) {
-      // Si hay más lecciones, avanzamos a la siguiente
       setCurrentVideoIndex(currentVideoIndex + 1);
     } else {
-      // Si es la última lección, intentar cargar el siguiente módulo
-      handleNextModule();
+      CompletarModulo(); // Completar el módulo actual y cargar el siguiente
     }
   };
 
-  // Redirigir al siguiente módulo y su primera lección
-  const handleNextModule = () => {
-    const currentModuleIndex = modulos.findIndex(
-      (mod) => mod.uuid === modulo.uuid
-    );
-
-    if (currentModuleIndex !== -1 && currentModuleIndex < modulos.length - 1) {
-      const nextModule = modulos[currentModuleIndex + 1];
-      // Cargar el siguiente módulo y su primera lección
-      fetchModuloDetalle(nextModule.uuid);
-    } else {
-      console.log("No hay más módulos disponibles.");
-    }
-  };
-
-  // Redirigir al detalle del curso cuando se hace clic en el botón de retroceso
   const handleBackToCourse = () => {
     if (curso) {
-      navigate(`/curso/${curso.uuid}`); // Redirigir al detalle del curso con su ID
+      navigate(`/curso/${curso.uuid}`);
     } else {
       console.log("No se ha podido obtener el curso.");
     }

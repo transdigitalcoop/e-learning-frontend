@@ -12,13 +12,6 @@ export const Video = ({ videoUrl, handleNextVideo, isNextAvailable }) => {
   return (
     <>
       <div className="contain-video">
-        {/* Loader: Se muestra mientras el video carga */}
-        {isLoadingVideo && (
-          <div className="video-loader">
-            <p>Cargando video...</p>
-          </div>
-        )}
-
         {/* Contenedor del video */}
         <div className={`video ${isLoadingVideo ? "hidden" : ""}`}>
           <video
@@ -37,7 +30,7 @@ export const Video = ({ videoUrl, handleNextVideo, isNextAvailable }) => {
         <div className="boton">
           {isNextAvailable ? (
             <button onClick={handleNextVideo}>
-              <h2>Siguiente sección</h2>
+              <h2>Siguiente lección</h2>
             </button>
           ) : (
             <button onClick={handleNextVideo}>

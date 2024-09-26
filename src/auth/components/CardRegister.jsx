@@ -3,6 +3,7 @@ import axios from "axios";
 import { useState } from "react";
 import { toast } from "sonner";
 import { Link, useNavigate } from "react-router-dom";
+
 export const CardRegister = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -21,7 +22,7 @@ export const CardRegister = () => {
       [e.target.name]: e.target.value,
     });
   };
-
+  const apiUrl = import.meta.env.VITE_API_URL;
   const handleSubmit = (e) => {
     e.preventDefault();
     // Validación de contraseñas
@@ -32,7 +33,7 @@ export const CardRegister = () => {
       return; // Detiene la ejecución si las contraseñas no coinciden
     }
     axios
-      .post("http://127.0.0.1:8000/api/usuarios", formData)
+      .post(`${apiUrl}/api/usuarios`, formData)
       .then(() => {
         toast.success("Registrado exitosamente!", {
           className: "toast-s",

@@ -8,18 +8,26 @@ export const AuthProvider = ({ children }) => {
     return localStorage.getItem("token") !== null;
   });
 
-  const login = (token) => {
+  const [uuid, setUuid] = useState(() => {
+    return localStorage.getItem("uuid"); // Obtenemos el UUID del usuario almacenado
+  });
+
+  const login = (token, userUuid) => {
     setIsAuthenticated(true);
-    localStorage.setItem("token", token);
+    localStorage.setItem("token", token); // Guardamos el token en localStorage
+    localStorage.setItem("uuid", userUuid); // Guardamos el UUID del usuario
+    setUuid(userUuid); // Actualizamos el UUID en el estado
   };
 
   const logout = () => {
     setIsAuthenticated(false);
     localStorage.removeItem("token");
+    localStorage.removeItem("uuid"); // Eliminamos el UUID del usuario al hacer logout
+    setUuid(null); // Reseteamos el UUID
   };
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, login, logout }}>
+    <AuthContext.Provider value={{ isAuthenticated, login, logout, uuid }}>
       {children}
     </AuthContext.Provider>
   );

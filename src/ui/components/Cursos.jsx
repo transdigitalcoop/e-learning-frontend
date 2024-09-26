@@ -7,11 +7,11 @@ import CursosLoader from "./loaders/CursosLoader";
 export const Cursos = () => {
   const [cursos, setCursos] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  const apiUrl = import.meta.env.VITE_API_URL;
   useEffect(() => {
     const fetchCursos = async () => {
       try {
-        const response = await axios.get("http://127.0.0.1:8000/api/rutas");
+        const response = await axios.get(`${apiUrl}/api/rutas`);
         setCursos(response.data);
         setTimeout(() => {
           setLoading(false);

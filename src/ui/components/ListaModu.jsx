@@ -38,7 +38,7 @@ export const ListaModu = ({ data, curso, onMouseEnterModulo }) => {
         observer.unobserve(element);
       });
     };
-  }, []); // El array vacío asegura que esto se ejecute solo una vez cuando el componente se monte
+  }, []);
   return (
     <div className="mod">
       <div className="modnames animate-element">
@@ -51,7 +51,7 @@ export const ListaModu = ({ data, curso, onMouseEnterModulo }) => {
             {data.map((modulo) => (
               <li
                 key={modulo.id}
-                onMouseEnter={() => onMouseEnterModulo(modulo.descripcion)} // Actualiza la descripción al pasar el mouse
+                onMouseEnter={() => onMouseEnterModulo(modulo.descripcion)}
               >
                 <Link to={`/modulo/${modulo.uuid}`}>{modulo.nombre}</Link>
                 <ArrowRightCircleIcon className="Icono-arrow" />

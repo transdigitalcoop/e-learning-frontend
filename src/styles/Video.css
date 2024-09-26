@@ -15,17 +15,18 @@
     padding-bottom: 10px;
     padding-top: 10px;
     position: relative; /* Posiciona el loader respecto a este contenedor */
-    min-height: 500px; /* Asegura que el video tenga un tamaño mínimo mientras carga */
+    min-height: 500px;
+    height: calc(100vh - 20%);
 }
 
 .video video {
     scale: 1/1;
-    min-width: 90%;
-    max-width: 90%;
-    width: 90%;
-    height: 90%;
-    min-height: 90%;
-    max-height: 90%;
+    min-width: 95%;
+    max-width: 95%;
+    width: 95%;
+    height: 95%;
+    min-height: 95%;
+    max-height: 95%;
 }
 
 /* Loader que cubre solo el video */

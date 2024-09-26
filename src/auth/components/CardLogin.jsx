@@ -4,14 +4,16 @@ import { useState } from "react";
 import { toast } from "sonner";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth.js";
+
 export const CardLogin = () => {
   const [formData, setFormData] = useState({
     email: "",
     contraseña: "",
   });
+  const apiUrl = import.meta.env.VITE_API_URL;
+  const { login } = useAuth(); // Función login del contexto
+  const navigate = useNavigate();
 
-  const { login } = useAuth(); // Obtén la función login del contexto
-  const navigate = useNavigate(); // Hook para redirigir
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -22,12 +24,13 @@ export const CardLogin = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://127.0.0.1:8000/api/logear", formData)
+      .post(`${apiUrl}/api/logear`, formData)
       .then((response) => {
         const token = response.data.token; // Obtén el token de la respuesta
+        const userUuid = response.data.uuid; // Obtén el UUID del usuario de la respuesta
         toast.success("Sesión iniciada con éxito!", { className: "toast-s" });
-        login(token); // Pasa el token a la función login
-        navigate("/");
+        login(token, userUuid); // Guardamos el token y el UUID del usuario
+        navigate("/"); // Redirigimos al usuario al home
       })
       .catch(() => {
         toast.error("Error al iniciar sesión, verifica tus credenciales", {
@@ -35,6 +38,7 @@ export const CardLogin = () => {
         });
       });
   };
+
   return (
     <>
       <div className="card-login">

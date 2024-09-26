@@ -9,6 +9,7 @@ import SkeletonCourseCard from "./loaders/SkeletonCourseCard";
 import "../../styles/Accordion.css";
 
 export const Accordion = () => {
+  const apiUrl = import.meta.env.VITE_API_URL;
   const [courses, setCourses] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [activeIndex, setActiveIndex] = useState(null);
@@ -23,7 +24,7 @@ export const Accordion = () => {
 
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:8000/api/rutas") // Asegúrate de que esta ruta es correcta
+      .get(`${apiUrl}/api/rutas`)
       .then((response) => {
         setCourses(Array.isArray(response.data) ? response.data : []);
         setIsLoading(false);
@@ -53,7 +54,7 @@ export const Accordion = () => {
           </span>
         </div>
         {activeIndex === 0 && (
-          <div className="accordion-content">
+          <div className="accordion-content animate__animated animate__slideInUp">
             {isLoading ? (
               <>
                 <SkeletonCourseCard />
