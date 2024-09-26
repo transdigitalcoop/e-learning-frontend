@@ -8,16 +8,14 @@ export const CursosDropdown = ({ id, nombre, currentModuloId }) => {
   const [modulos, setModulos] = useState([]);
   const [selectedModulo, setSelectedModulo] = useState("");
   const [isLoading, setIsLoading] = useState(true);
-
+  const apiUrl = import.meta.env.VITE_API_URL;
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchCursoDetalle = async () => {
       if (!id) return;
       try {
-        const response = await axios.get(
-          `http://127.0.0.1:8000/api/cursos/${id}`
-        );
+        const response = await axios.get(`${apiUrl}/api/cursos/${id}`);
         setModulos(response.data.modulos);
         setIsLoading(false);
       } catch (error) {
@@ -42,7 +40,7 @@ export const CursosDropdown = ({ id, nombre, currentModuloId }) => {
       {isLoading ? (
         <SelectLoader />
       ) : (
-        <select value={selectedModulo} onChange={handleSelectChange}>
+        <select value={currentModuloId} onChange={handleSelectChange}>
           <option value="">{nombre}</option>
           {modulos
             .filter((modulo) => modulo.uuid !== currentModuloId) // Excluye el módulo actual

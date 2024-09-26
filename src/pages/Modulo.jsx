@@ -21,7 +21,6 @@ export const Modulo = () => {
   const [isLoadingLecciones, setIsLoadingLecciones] = useState(true);
   const [modulos, setModulos] = useState([]);
   const { uuid } = useContext(AuthContext); // Obtenemos el UUID del usuario desde el contexto
-
   const navigate = useNavigate();
 
   // Obtener el detalle del módulo actual
@@ -47,11 +46,14 @@ export const Modulo = () => {
     try {
       // Hacemos la petición con el UUID del usuario
       const response = await axios.post(
-        `${apiUrl}/${uuid}/modulos/${modulo.uuid}/completar`
+        `${apiUrl}/api/${uuid}/modulos/${modulo.uuid}/completar`
       );
 
-      const siguienteModuloId = response.data.siguienteModuloId;
+      const siguienteModuloId = response.data.siguiente_modulo_id;
+
       if (siguienteModuloId) {
+        // Redirigir al siguiente módulo si existe
+        navigate(`/modulo/${siguienteModuloId}`);
         fetchModuloDetalle(siguienteModuloId); // Cargar el siguiente módulo
       } else {
         console.log("No hay más módulos disponibles.");
